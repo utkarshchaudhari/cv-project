@@ -15,7 +15,7 @@ body {
   background-color: #333333;
 }
 
-h1 {
+.title {
   font-size: 44px;
   color: #eeeeee;
   display: flex;
@@ -28,10 +28,20 @@ h1 {
   max-width: 800px;
   margin: 0 auto;
   margin-top: 30px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.form_container {
   padding: 20px;
   background-color: #eeeeee;
   border-radius: 5px;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.preview_container {
+  min-height: 1200px;
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  grid-template-rows: 136px auto;
 }
 
 h3 {
@@ -85,6 +95,49 @@ button {
 
 .black:hover {
   background-color: #292929;
+}
+
+.cvHeader {
+  background-color: #143e72;
+  color: #eeeeee;
+  padding: 20px;
+  line-height: 1.3;
+  grid-column: 1 / span 2;
+}
+
+.cvName {
+  font-size: 48px;
+}
+
+.cvTitle {
+  font-size: 24px;
+}
+
+.content {
+  padding: 20px;
+  background-color: #eeeeee;
+}
+
+.content_section {
+  margin-bottom: 20px;
+}
+
+.content_Title {
+  color: #143e72;
+  font-weight: 500;
+  padding: 0;
+  border-bottom: 1px solid #cccccc;
+}
+
+.summary {
+  color: #333333;
+  margin: 10px 0px 20px 0px;
+  line-height: 1.6;
+}
+
+.sidebar {
+  background-color: #dddddd;
+  padding: 20px;
 }
 
 footer {
