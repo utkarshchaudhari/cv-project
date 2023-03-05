@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 
 class CVHeader extends Component {
   render() {
+    const { firstName, lastName, title } = this.props;
     return (
       <header className="cvHeader">
-        <h1 className="cvName">Utkarsh Chaudhari</h1>
-        <p className="cvTitle">Software Developer</p>
+        <h1 className="cvName">
+          {firstName} {lastName}
+        </h1>
+        <p className="cvTitle">{title}</p>
       </header>
     );
   }

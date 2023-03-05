@@ -11,6 +11,17 @@ body {
   background-color: #cccccc;
 }
 
+h3 {
+  font-size: 18px;
+  color: #333333;
+  padding: 5px;
+}
+
+h4 {
+  color: #333333;
+  font-weight: 500;
+}
+
 .header {
   background-color: #333333;
 }
@@ -42,12 +53,6 @@ body {
   display: grid;
   grid-template-columns: 2.5fr 1fr;
   grid-template-rows: 136px auto;
-}
-
-h3 {
-  font-size: 18px;
-  color: #333333;
-  padding: 5px;
 }
 
 .section__wrapper,
@@ -133,11 +138,26 @@ button {
   color: #333333;
   margin: 10px 0px 20px 0px;
   line-height: 1.6;
+  word-break: break-all;
 }
 
 .sidebar {
   background-color: #dddddd;
   padding: 20px;
+}
+
+.sidebar,
+.details_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar_details {
+  color: #333333;
+  font-weight: 200;
+  word-break: break-all;
+  margin-top: 5px;
 }
 
 footer {

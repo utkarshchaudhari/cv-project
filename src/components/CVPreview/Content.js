@@ -7,7 +7,7 @@ class Content extends Component {
   render() {
     return (
       <div className="content">
-        <Description />
+        <Description description={this.props.description} />
         <Experience />
         <Education />
       </div>

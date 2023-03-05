@@ -5,7 +5,7 @@ class Description extends Component {
     return (
       <div className="content_section">
         <h3 className="content_Title">Description</h3>
-        <p className="summary"></p>
+        <p className="summary">{this.props.description}</p>
       </div>
     );
   }
