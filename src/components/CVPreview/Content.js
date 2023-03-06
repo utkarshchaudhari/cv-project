@@ -8,8 +8,8 @@ class Content extends Component {
     return (
       <div className="content">
         <Description description={this.props.description} />
-        <Experience />
-        <Education />
+        <Experience experience={this.props.experience} />
+        <Education education={this.props.education} />
       </div>
     );
   }

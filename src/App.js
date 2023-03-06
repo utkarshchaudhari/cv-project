@@ -21,13 +21,35 @@ class App extends Component {
       phoneNumber: '',
       email: '',
       description: '',
+      experience: [{}],
+      education: [{}],
     };
 
     this.onChange = this.onChange.bind(this);
+    this.experienceChange = this.experienceChange.bind(this);
+    this.educationChange = this.educationChange.bind(this);
   }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  experienceChange(e) {
+    const newArr = [...this.state.experience];
+    newArr[e.target.dataset.experience] = {
+      ...newArr[e.target.dataset.experience],
+      [e.target.name]: e.target.value,
+    };
+    this.setState({ experience: newArr });
+  }
+
+  educationChange(e) {
+    const newArr = [...this.state.education];
+    newArr[e.target.dataset.education] = {
+      ...newArr[e.target.dataset.education],
+      [e.target.name]: e.target.value,
+    };
+    this.setState({ education: newArr });
   }
   render() {
     return (
@@ -35,8 +57,8 @@ class App extends Component {
         <Header />
         <div className="container form_container">
           <General onChange={this.onChange} />
-          <Experience />
-          <Education />
+          <Experience onChange={this.experienceChange} />
+          <Education onChange={this.educationChange} />
         </div>
         <div className="container preview_container">
           <CVHeader
@@ -44,7 +66,11 @@ class App extends Component {
             lastName={this.state.lastName}
             title={this.state.title}
           />
-          <Content description={this.state.description} />
+          <Content
+            description={this.state.description}
+            experience={this.state.experience}
+            education={this.state.education}
+          />
           <Sidebar
             address={this.state.address}
             phoneNumber={this.state.phoneNumber}

@@ -125,6 +125,9 @@ button {
 
 .content_section {
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .content_Title {
@@ -158,6 +161,26 @@ button {
   font-weight: 200;
   word-break: break-all;
   margin-top: 5px;
+}
+
+.information_wrapper {
+  display: flex;
+  word-break: break-all;
+}
+
+.dates {
+  margin-right: 20px;
+  width: 25%;
+}
+
+.information {
+  line-height: 1.5;
+  width: 70%;
+}
+
+.details {
+  color: #333333;
+  font-weight: 200;
 }
 
 footer {
