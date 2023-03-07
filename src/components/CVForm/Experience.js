@@ -3,9 +3,15 @@ import ExperienceItem from './ExperienceItem';
 
 class Experience extends Component {
   render() {
-    const { onChange, addExperience, experiences } = this.props;
+    const { onChange, addExperience, deleteExperience, experiences } =
+      this.props;
     const experienceItems = experiences.map((item) => (
-      <ExperienceItem key={item.id} id={item.id} onChange={onChange} />
+      <ExperienceItem
+        key={item.id}
+        id={item.id}
+        onChange={onChange}
+        deleteExperience={deleteExperience}
+      />
     ));
     return (
       <div className="section__wrapper">

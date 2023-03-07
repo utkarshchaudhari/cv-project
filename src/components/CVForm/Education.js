@@ -3,9 +3,14 @@ import EducationItem from './EducationItem';
 
 class Education extends Component {
   render() {
-    const { onChange, addEducation, education } = this.props;
+    const { onChange, addEducation, deleteEducation, education } = this.props;
     const educationItems = education.map((item) => (
-      <EducationItem key={item.id} id={item.id} onChange={onChange} />
+      <EducationItem
+        key={item.id}
+        id={item.id}
+        deleteEducation={deleteEducation}
+        onChange={onChange}
+      />
     ));
     return (
       <div className="section__wrapper">

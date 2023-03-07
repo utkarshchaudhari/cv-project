@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class ExperienceItem extends Component {
   render() {
-    const { id, onChange } = this.props;
+    const { id, onChange, deleteExperience } = this.props;
     return (
       <>
         <input
@@ -40,7 +40,13 @@ class ExperienceItem extends Component {
           data-experience={id}
           onChange={onChange}
         ></input>
-        <button className="black">Delete</button>
+        <button
+          className="black"
+          data-experience={id}
+          onClick={deleteExperience}
+        >
+          Delete
+        </button>
       </>
     );
   }

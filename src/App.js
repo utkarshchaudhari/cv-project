@@ -30,7 +30,9 @@ class App extends Component {
     this.experienceChange = this.experienceChange.bind(this);
     this.educationChange = this.educationChange.bind(this);
     this.addExperience = this.addExperience.bind(this);
+    this.deleteExperience = this.deleteExperience.bind(this);
     this.addEducation = this.addEducation.bind(this);
+    this.deleteEducation = this.deleteEducation.bind(this);
   }
 
   onChange(e) {
@@ -59,8 +61,22 @@ class App extends Component {
     this.setState({ experience: [...this.state.experience, { id: uuidv4() }] });
   }
 
+  deleteExperience(e) {
+    const newArr = this.state.experience.filter(
+      (item) => item.id != e.target.dataset.experience
+    );
+    this.setState({ experience: newArr });
+  }
+
   addEducation() {
     this.setState({ education: [...this.state.education, { id: uuidv4() }] });
+  }
+
+  deleteEducation(e) {
+    const newArr = this.state.education.filter(
+      (item) => item.id != e.target.dataset.education
+    );
+    this.setState({ education: newArr });
   }
   render() {
     return (
@@ -71,11 +87,13 @@ class App extends Component {
           <Experience
             onChange={this.experienceChange}
             addExperience={this.addExperience}
+            deleteExperience={this.deleteExperience}
             experiences={this.state.experience}
           />
           <Education
             onChange={this.educationChange}
             addEducation={this.addEducation}
+            deleteEducation={this.deleteEducation}
             education={this.state.education}
           />
         </div>
