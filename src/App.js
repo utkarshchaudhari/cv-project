@@ -23,13 +23,14 @@ class App extends Component {
       email: '',
       description: '',
       experience: [{ id: 1 }],
-      education: [{}],
+      education: [{ id: 1 }],
     };
 
     this.onChange = this.onChange.bind(this);
     this.experienceChange = this.experienceChange.bind(this);
     this.educationChange = this.educationChange.bind(this);
     this.addExperience = this.addExperience.bind(this);
+    this.addEducation = this.addEducation.bind(this);
   }
 
   onChange(e) {
@@ -46,16 +47,20 @@ class App extends Component {
   }
 
   educationChange(e) {
-    const newArr = [...this.state.education];
-    newArr[e.target.dataset.education] = {
-      ...newArr[e.target.dataset.education],
-      [e.target.name]: e.target.value,
-    };
+    const newArr = this.state.education.map((item) => {
+      if (item.id == e.target.dataset.education) {
+        return { ...item, [e.target.name]: e.target.value };
+      } else return item;
+    });
     this.setState({ education: newArr });
   }
 
   addExperience() {
     this.setState({ experience: [...this.state.experience, { id: uuidv4() }] });
+  }
+
+  addEducation() {
+    this.setState({ education: [...this.state.education, { id: uuidv4() }] });
   }
   render() {
     return (
@@ -68,7 +73,11 @@ class App extends Component {
             addExperience={this.addExperience}
             experiences={this.state.experience}
           />
-          <Education onChange={this.educationChange} />
+          <Education
+            onChange={this.educationChange}
+            addEducation={this.addEducation}
+            education={this.state.education}
+          />
         </div>
         <div className="container preview_container">
           <CVHeader
