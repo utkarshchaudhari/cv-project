@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Header from './components/Header';
 import General from './components/CVForm/General';
 import Experience from './components/CVForm/Experience';
@@ -21,13 +22,14 @@ class App extends Component {
       phoneNumber: '',
       email: '',
       description: '',
-      experience: [{}],
+      experience: [{ id: 1 }],
       education: [{}],
     };
 
     this.onChange = this.onChange.bind(this);
     this.experienceChange = this.experienceChange.bind(this);
     this.educationChange = this.educationChange.bind(this);
+    this.addExperience = this.addExperience.bind(this);
   }
 
   onChange(e) {
@@ -35,11 +37,11 @@ class App extends Component {
   }
 
   experienceChange(e) {
-    const newArr = [...this.state.experience];
-    newArr[e.target.dataset.experience] = {
-      ...newArr[e.target.dataset.experience],
-      [e.target.name]: e.target.value,
-    };
+    const newArr = this.state.experience.map((item) => {
+      if (item.id == e.target.dataset.experience) {
+        return (item = { ...item, [e.target.name]: e.target.value });
+      } else return item;
+    });
     this.setState({ experience: newArr });
   }
 
@@ -51,13 +53,21 @@ class App extends Component {
     };
     this.setState({ education: newArr });
   }
+
+  addExperience() {
+    this.setState({ experience: [...this.state.experience, { id: uuidv4() }] });
+  }
   render() {
     return (
       <>
         <Header />
         <div className="container form_container">
           <General onChange={this.onChange} />
-          <Experience onChange={this.experienceChange} />
+          <Experience
+            onChange={this.experienceChange}
+            addExperience={this.addExperience}
+            experiences={this.state.experience}
+          />
           <Education onChange={this.educationChange} />
         </div>
         <div className="container preview_container">
