@@ -10,22 +10,14 @@ import Sidebar from './components/CVPreview/Sidebar';
 import Footer from './components/Footer';
 import './style.css';
 import Button from './components/CVForm/Button';
+import example from './components/Utils/example';
+import empty from './components/Utils/empty';
 
 class App extends Component {
   constructor() {
     super();
 
-    this.state = {
-      firstName: '',
-      lastName: '',
-      title: '',
-      address: '',
-      phoneNumber: '',
-      email: '',
-      description: '',
-      experience: [{ id: 1 }],
-      education: [{ id: 1 }],
-    };
+    this.state = empty;
 
     this.onChange = this.onChange.bind(this);
     this.experienceChange = this.experienceChange.bind(this);
@@ -34,6 +26,8 @@ class App extends Component {
     this.deleteExperience = this.deleteExperience.bind(this);
     this.addEducation = this.addEducation.bind(this);
     this.deleteEducation = this.deleteEducation.bind(this);
+    this.exampleCV = this.exampleCV.bind(this);
+    this.resetCV = this.resetCV.bind(this);
   }
 
   onChange(e) {
@@ -79,12 +73,20 @@ class App extends Component {
     );
     this.setState({ education: newArr });
   }
+
+  exampleCV() {
+    this.setState(example);
+  }
+
+  resetCV() {
+    this.setState(empty);
+  }
   render() {
     return (
       <>
         <Header />
         <div className="container form_container">
-          <General onChange={this.onChange} />
+          <General onChange={this.onChange} stateProp={this.state} />
           <Experience
             onChange={this.experienceChange}
             addExperience={this.addExperience}
@@ -97,7 +99,7 @@ class App extends Component {
             deleteEducation={this.deleteEducation}
             education={this.state.education}
           />
-          <Button />
+          <Button exampleCV={this.exampleCV} resetCV={this.resetCV} />
         </div>
         <div className="container preview_container">
           <CVHeader

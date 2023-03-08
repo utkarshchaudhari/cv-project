@@ -12,6 +12,12 @@ class Button extends Component {
             document.getElementsByClassName('preview_container')[0]
           }
         />
+        <button className="orange" onClick={this.props.exampleCV}>
+          Load Example
+        </button>
+        <button className="red" onClick={this.props.resetCV}>
+          Reset
+        </button>
       </div>
     );
   }

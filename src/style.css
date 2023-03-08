@@ -98,12 +98,48 @@ button {
   background-color: #333333;
 }
 
+.black:hover {
+  background-color: #292929;
+}
+
+.black:active {
+  background-color: #111111;
+}
+
 .green {
   background-color: #1ba148;
 }
 
-.black:hover {
-  background-color: #292929;
+.green:hover {
+  background-color: #0a9037;
+}
+
+.green:active {
+  background-color: #098026;
+}
+
+.orange {
+  background-color: #c25c0e;
+}
+
+.orange:hover {
+  background-color: #b14b0d;
+}
+
+.orange:active {
+  background-color: #a03a0c;
+}
+
+.red {
+  background-color: #b3211e;
+}
+
+.red:hover {
+  background-color: #a2100d;
+}
+
+.red:active {
+  background-color: #91000c;
 }
 
 .cvHeader {

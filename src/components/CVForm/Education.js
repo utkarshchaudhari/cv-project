@@ -7,7 +7,7 @@ class Education extends Component {
     const educationItems = education.map((item) => (
       <EducationItem
         key={item.id}
-        id={item.id}
+        item={item}
         deleteEducation={deleteEducation}
         onChange={onChange}
       />

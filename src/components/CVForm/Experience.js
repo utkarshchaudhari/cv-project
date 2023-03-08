@@ -8,7 +8,7 @@ class Experience extends Component {
     const experienceItems = experiences.map((item) => (
       <ExperienceItem
         key={item.id}
-        id={item.id}
+        item={item}
         onChange={onChange}
         deleteExperience={deleteExperience}
       />
