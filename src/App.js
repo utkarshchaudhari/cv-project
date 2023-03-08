@@ -9,6 +9,7 @@ import Content from './components/CVPreview/Content';
 import Sidebar from './components/CVPreview/Sidebar';
 import Footer from './components/Footer';
 import './style.css';
+import Button from './components/CVForm/Button';
 
 class App extends Component {
   constructor() {
@@ -96,6 +97,7 @@ class App extends Component {
             deleteEducation={this.deleteEducation}
             education={this.state.education}
           />
+          <Button />
         </div>
         <div className="container preview_container">
           <CVHeader

@@ -98,6 +98,10 @@ button {
   background-color: #333333;
 }
 
+.green {
+  background-color: #1ba148;
+}
+
 .black:hover {
   background-color: #292929;
 }
@@ -193,4 +197,13 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media print {
+  .preview_container {
+    margin: 0;
+  }
+  @page {
+    size: 210mm 297mm;
+  }
 }
